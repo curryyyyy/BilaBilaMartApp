@@ -19,12 +19,15 @@ import com.example.bilabilamartapp.R
 import com.example.bilabilamartapp.navigation.NavigationDestination
 import com.example.bilabilamartapp.ui.theme.BilaBilaMartAppTheme
 
-
+object AdminHomeScreen : NavigationDestination {
+    override val route = "home"
+    override val titleRes = R.string.app_name
+}
 
 @Composable
 fun AdminHomeScreen(
     modifier: Modifier = Modifier,
-
+    navigateToInventory:() -> Unit,
 ){
     Column (
         horizontalAlignment = Alignment.CenterHorizontally,
@@ -33,9 +36,7 @@ fun AdminHomeScreen(
     ) {
         Row {
             Button(
-                onClick = {
-                    //navController.navigate("Inventory")
-                }
+                onClick = navigateToInventory,
             )
             {
                 Text(text = "Inventory")

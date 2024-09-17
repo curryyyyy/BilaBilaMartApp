@@ -9,6 +9,7 @@ import androidx.navigation.compose.composable
 import androidx.navigation.navArgument
 import com.example.bilabilamartapp.admin.AdminHomeScreen
 import com.example.bilabilamartapp.admin.AdminHomeScreenPreview
+import com.example.bilabilamartapp.admin.Inventory
 
 @Composable
 fun AppNavHost(
@@ -17,11 +18,20 @@ fun AppNavHost(
 ){
     NavHost(
         navController = navController,
-        startDestination = "AdminHomeScreen",
+        startDestination = AdminHomeScreen.route,
         modifier = modifier
     ){
-        composable(route = "AdminHomeScreen"){
-            AdminHomeScreenPreview()
+        composable(route = AdminHomeScreen.route){
+            AdminHomeScreen(
+                navigateToInventory = { navController.navigate(Inventory.route)}
+            )
+        }
+
+        //
+        composable(route = Inventory.route){
+            Inventory(
+
+            )
         }
     }
 }
